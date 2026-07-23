@@ -59,3 +59,14 @@ OTP auth:
 - Rotate `JWT_SECRET` to a production-only value, stored only in Vercel's environment settings.
 - Add a basic uptime/error-monitoring hook (e.g. Vercel's built-in analytics, or Sentry) before
   sharing the production link widely.
+
+## Backlog — Smaller Ideas (not yet scoped into a phase)
+
+- **Default priority & flexibility per wishlist**: let the owner set a default `priority` and
+  default `matchPreference` on a `Wishlist` (e.g. `defaultPriority`, `defaultMatchPreference`
+  fields), applied automatically when a new item is quick-added without specifying one, instead of
+  starting blank. Small, additive schema change; no dependency on any other phase above.
+
+See also `PLAN_INLINE_EDIT_AND_ONBOARDING.md` and `PLAN_AUTOPARSE_AND_QUICK_FIXES.md` for detailed,
+ready-to-implement plans covering item-card UX polish, onboarding guidance, and link autoparsing —
+these flesh out parts of Phase 3 above and add UI feedback not in the original spec.
