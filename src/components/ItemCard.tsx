@@ -56,7 +56,10 @@ export default function ItemCard(props: ItemCardProps) {
           <button onClick={() => setEditing(true)} className="text-gray-500 hover:underline">
             Edit
           </button>
-          <button onClick={handleDelete} className="text-red-600 hover:underline">
+          <button
+            onClick={handleDelete}
+            className="rounded-md border border-red-200 px-2.5 py-1 text-xs text-red-700 hover:border-red-300 hover:bg-red-50 dark:border-red-900/60 dark:text-red-400 dark:hover:bg-red-950/40"
+          >
             Delete
           </button>
         </div>

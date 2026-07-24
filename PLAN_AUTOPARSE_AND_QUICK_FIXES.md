@@ -1,9 +1,11 @@
 # Plan: Link Autoparsing + Destructive-Button Restyle + Hint-Text Fix
 
-Status: planned, not yet implemented. Companion doc: `PLAN_INLINE_EDIT_AND_ONBOARDING.md`
-(inline click-to-edit card redesign + onboarding copy live there instead).
+Status: sections 1 and 2 (destructive-button restyle, hint-text fix) are **done**. Section 3
+(link autoparsing) is still planned, not yet implemented. Companion doc:
+`PLAN_INLINE_EDIT_AND_ONBOARDING.md` (inline click-to-edit card redesign + onboarding copy live
+there instead).
 
-## 1. Destructive-action button restyle
+## 1. Destructive-action button restyle ✅ Done
 
 ### 1.1 Current state (grounded)
 
@@ -85,7 +87,7 @@ directly answers the user's stated complaint ("the bright red is shocking") with
 Note Option 2 explicitly in this doc as a follow-up so a future PR can lift the
 `PublicItemCard.tsx` inline-confirm pattern into both delete flows if wanted later.
 
-## 2. Quick-add hint-text truncation fix
+## 2. Quick-add hint-text truncation fix ✅ Done
 
 ### 2.1 Current state (grounded)
 
