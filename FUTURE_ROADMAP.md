@@ -70,6 +70,8 @@ OTP auth:
   fields), applied automatically when a new item is quick-added without specifying one, instead of
   starting blank. Small, additive schema change; no dependency on any other phase above.
 
-See also `PLAN_INLINE_EDIT_AND_ONBOARDING.md` and `PLAN_AUTOPARSE_AND_QUICK_FIXES.md` for detailed,
+See also `PLAN_INLINE_EDIT_AND_ONBOARDING.md`, `PLAN_AUTOPARSE_AND_QUICK_FIXES.md`, and
+`PLAN_GUEST_MODE.md` (try the app and create a wishlist with zero login, claiming it into your
+account later) for detailed,
 ready-to-implement plans covering item-card UX polish, onboarding guidance, and link autoparsing —
 these flesh out parts of Phase 3 above and add UI feedback not in the original spec.
