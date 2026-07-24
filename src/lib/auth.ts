@@ -8,6 +8,8 @@ if (!JWT_SECRET) {
 
 const secretKey = new TextEncoder().encode(JWT_SECRET);
 
+export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export const SESSION_COOKIE_NAME = "session";
 const SESSION_DURATION_SECONDS = 60 * 60 * 24 * 30; // 30 days
 

@@ -5,17 +5,18 @@ public sharing by slug, and anonymous "mark as purchased." Everything below was 
 product spec but was cut from v1 to ship something working end-to-end quickly. Nothing here is
 abandoned — it's scoped for later phases.
 
-## Phase 2 — Real Authentication
+## Phase 2 — Real Authentication ✅ Done
 
-Replace the v1 stub login (email in, session cookie out, no verification) with real passwordless
+Replaced the v1 stub login (email in, session cookie out, no verification) with real passwordless
 OTP auth:
-- Add `otpCodeHash`, `otpExpiresAt`, `otpAttempts` to the `User` model.
-- Send a 6-digit code via **Resend** on `POST /api/auth/send-code`.
-- Verify the code (hashed comparison, ~10 min expiry) on `POST /api/auth/verify` before issuing
-  the session cookie.
-- Rate limit `send-code` (e.g. 3 requests / 10 min per IP or email) to prevent abuse.
-- Should land before Phase 6 hardening, since rate limiting matters more once there's a real
-  identity to protect.
+- `otpCodeHash`, `otpExpiresAt`, `otpAttempts` added to the `User` model.
+- `POST /api/auth/send-code` generates a 6-digit code (HMAC-hashed at rest, ~10 min expiry) and
+  sends it via **Resend** — falls back to logging the code to the server console if
+  `RESEND_API_KEY` isn't set, so local dev doesn't require a Resend account.
+- `POST /api/auth/verify` checks the code (timing-safe comparison, expiry, max attempts) before
+  issuing the same JWT session cookie as before.
+- `send-code` is rate limited (3 requests / 10 min per email) via an in-memory limiter
+  (`src/lib/rateLimit.ts`) — single-process only, see Phase 6 for a distributed replacement.
 
 ## Phase 3 — Media & Link Enrichment
 
@@ -42,6 +43,8 @@ OTP auth:
 
 ## Phase 6 — Hardening
 
+- Replace the in-memory `send-code` rate limiter with a distributed store (e.g. Upstash/Redis) —
+  the current one resets on every deploy and isn't shared across serverless instances.
 - Rate limit all public endpoints (`fulfill`, public `GET`), not just auth.
 - Replace the v1 atomic-but-simple `findOneAndUpdate({ isFulfilled: false })` guard with a full
   optimistic-locking/version field if more complex fulfillment states are added (e.g. partial
