@@ -50,8 +50,8 @@ export default function QuickAddItemForm({ wishlistId }: { wishlistId: string })
               submitItem();
             }
           }}
-          placeholder="Add an item... (just a name is fine)"
-          className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-base outline-none focus:border-gray-500 dark:border-gray-700 dark:bg-gray-900"
+          placeholder="Add an item…"
+          className="min-w-0 flex-1 rounded-md border border-gray-300 px-3 py-2 text-base outline-none focus:border-gray-500 dark:border-gray-700 dark:bg-gray-900"
         />
         <button
           type="submit"
@@ -61,6 +61,7 @@ export default function QuickAddItemForm({ wishlistId }: { wishlistId: string })
           Add
         </button>
       </div>
+      <p className="text-xs text-gray-400">Just a name is fine — add details later.</p>
       {error && <p className="text-sm text-red-600">{error}</p>}
     </form>
   );
