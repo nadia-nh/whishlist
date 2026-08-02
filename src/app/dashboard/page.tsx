@@ -30,7 +30,13 @@ export default async function DashboardPage() {
       </Link>
 
       {wishlists.length === 0 ? (
-        <p className="text-sm text-gray-500">No wishlists yet — create your first one above.</p>
+        <div className="flex flex-col gap-1">
+          <p className="text-sm text-gray-500">No wishlists yet — create your first one above.</p>
+          <p className="text-sm text-gray-500">
+            Add items with just a name, then fill in links, prices, or how flexible you are
+            whenever you get around to it.
+          </p>
+        </div>
       ) : (
         <div className="flex flex-col gap-3">
           {wishlists.map((w) => (

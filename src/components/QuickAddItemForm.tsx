@@ -61,7 +61,7 @@ export default function QuickAddItemForm({ wishlistId }: { wishlistId: string })
           Add
         </button>
       </div>
-      <p className="text-xs text-gray-400">Just a name is fine — add details later.</p>
+      <p className="text-xs text-gray-400">Just a name is fine — click the item to add details later.</p>
       {error && <p className="text-sm text-red-600">{error}</p>}
     </form>
   );

@@ -1,18 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { MATCH_PREFERENCE_LABELS, type MatchPreference } from "@/types";
+import { MATCH_PREFERENCE_LABELS, type ItemFields } from "@/types";
 
-type PublicItemCardProps = {
-  id: string;
-  title: string;
-  description?: string | null;
-  url?: string | null;
-  price?: number | null;
-  priority?: number | null;
-  matchPreference?: MatchPreference | null;
-  isFulfilled: boolean;
-};
+type PublicItemCardProps = ItemFields & { isFulfilled: boolean };
 
 const PRIORITY_LABELS: Record<number, string> = { 1: "Low", 2: "Medium", 3: "High" };
 
