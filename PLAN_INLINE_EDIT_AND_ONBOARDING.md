@@ -1,7 +1,7 @@
 # Plan: Inline Click-to-Edit Item Cards + Onboarding Guidance
 
-Status: planned, not yet implemented. Companion doc: `PLAN_AUTOPARSE_AND_QUICK_FIXES.md`
-(destructive-button restyling, hint-text fix, and link autoparsing live there instead).
+Status: **done**. Companion doc: `PLAN_AUTOPARSE_AND_QUICK_FIXES.md` (destructive-button
+restyling and hint-text fix are done there too; link autoparsing is still planned).
 
 ## 1. Problem statement
 

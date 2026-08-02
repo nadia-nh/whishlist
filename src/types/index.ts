@@ -13,3 +13,13 @@ export const MATCH_PREFERENCE_LABELS: Record<MatchPreference, string> = {
   SAME_BRAND_ANY: "Same brand, any variation",
   ANY_BRAND_SIMILAR: "Any brand, similar is fine",
 };
+
+export type ItemFields = {
+  id: string;
+  title: string;
+  description?: string | null;
+  url?: string | null;
+  price?: number | null;
+  priority?: number | null;
+  matchPreference?: MatchPreference | null;
+};

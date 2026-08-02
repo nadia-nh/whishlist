@@ -39,12 +39,24 @@ export default async function WishlistDetailPage({
         <DeleteWishlistButton id={wishlist._id.toString()} />
       </div>
 
-      <CopyShareLink url={shareUrl} />
+      <div className="flex flex-col gap-1">
+        <CopyShareLink url={shareUrl} />
+        <p className="text-xs text-gray-400">
+          Share this link with anyone — they can mark items as purchased without needing an
+          account.
+        </p>
+      </div>
 
       <QuickAddItemForm wishlistId={wishlist._id.toString()} />
 
       {items.length === 0 ? (
-        <p className="text-sm text-gray-500">No items yet — add your first one above.</p>
+        <div className="flex flex-col gap-1">
+          <p className="text-sm text-gray-500">No items yet — add your first one above.</p>
+          <p className="text-sm text-gray-500">
+            Just a title is enough to start. Click on an item afterward to add a link, price,
+            priority, or how much you&apos;d like an exact match versus something similar.
+          </p>
+        </div>
       ) : (
         <div className="flex flex-col gap-3">
           {items.map((item) => (
